@@ -58,7 +58,7 @@ namespace Ovning_5___Garage_1._0
                 Console.WriteLine(vehicle.ToString());
               
             }
-        // var result = garage.Where(v => v.Color == "Red");
+       
         }
 
 

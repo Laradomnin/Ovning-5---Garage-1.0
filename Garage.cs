@@ -39,10 +39,7 @@ namespace Ovning_5___Garage_1._0
             for (int i = 0; i < fordon.Length; i++)
             {
                 if (fordon[i].RegNum == regnr)
-                {
-                    //object? p = fordon[i];
-                    //p = null;
-                    //fordon[i] = null;
+                {                 
                     fordon[i] = default(T);
                     
                      return true;
