@@ -1,15 +1,21 @@
 ﻿using Ovning_5___Garage_1._0;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 int input;
 bool done = false;
 var garageHandler = new GarageHandler(6);
 garageHandler.SeedData();
 do
 {
-    Console.WriteLine(" Ange följande cifror:" +
+    Console.WriteLine(" Ange följande siffror:" +
             "\n 1 - för att skriva ut alla fordon i garaget " +
             "\n 2 - parkera fordon" +
-            "\n 3 - unparkera fordon" +
-            "\n 4 - Söka efter fordon utifrån en egenslap, ex färg " +
+            "\n 3 - Hämta fordon" +
+            "\n 4 - Söka efter fordon utifrån färg " +
             "\n 5 - Statistik" +
             "\n 0 - för att avsluta "
             );
@@ -17,7 +23,7 @@ do
 
     if (!int.TryParse(Console.ReadLine(), out input) || input < 0 || input > 6)
     {
-        Console.WriteLine("Ange rätt cifra. ");
+        Console.WriteLine("Ange rätt siffra. ");
     }
     else
     {
@@ -27,10 +33,13 @@ do
                 garageHandler.PrintAllVehicles();
                 break;
             case 2:
-                garageHandler.Park(new Boat("BBB45", "Sandström", "Cabinbåt", "Blå", 6));
+                CaseTwo.Help(garageHandler); 
+    
+
                 break;
             case 3:
-                garageHandler.Unpark("AIR222");
+                var userInputU = UI.AskForString("registreringsnummer för fordonet ni vill hämta");
+                garageHandler.Unpark(userInputU);
                 break;
             case 4:           
                 var userInput = UI.AskForString();
@@ -44,7 +53,7 @@ do
                 Environment.Exit(0);
                 break;
             default:
-                Console.WriteLine("Ange rätt cifra,tack (0, 1, 2, 3, 4)");
+                Console.WriteLine("Ange rätt ciffra,tack (0, 1, 2, 3, 4, 5 )");
                 break;
                 ;
         } 
@@ -74,6 +83,3 @@ do
         //garageHandler.SearchByColorAndPrint("White");
     }
 }while (!done);
-    
-
-

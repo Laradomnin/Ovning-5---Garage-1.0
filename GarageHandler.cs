@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ovning_5___Garage_1._0
 {
-    internal class GarageHandler
+    public class GarageHandler
     {
         private Garage<Vehicle> garage;
 
