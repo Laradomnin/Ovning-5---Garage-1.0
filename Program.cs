@@ -17,8 +17,7 @@ do
             "\n 3 - Hämta fordon" +
             "\n 4 - Söka efter fordon utifrån färg " +
             "\n 5 - Statistik" +
-            "\n 0 - för att avsluta "
-            );
+            "\n 0 - för att avsluta ");
 
 
     if (!int.TryParse(Console.ReadLine(), out input) || input < 0 || input > 6)
@@ -34,8 +33,6 @@ do
                 break;
             case 2:
                 CaseTwo.Help(garageHandler); 
-    
-
                 break;
             case 3:
                 var userInputU = UI.AskForString("registreringsnummer för fordonet ni vill hämta");

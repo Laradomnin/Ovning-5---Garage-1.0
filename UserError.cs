@@ -21,7 +21,7 @@ namespace Ovning_5___Garage_1._0
         {
             public override string UEMessage()
             {
-                return "“You tried to use a text input in anumericonly field. This fired an error!";
+                return "“You tried to use a text input in an umericonly field. This fired an error!";
             }
         }
     }

@@ -9,7 +9,6 @@ namespace Ovning_5___Garage_1._0
     public class CaseTwo
     {
 
-
         public static void Help(GarageHandler garageHandler)
         {
             string userInputType;
@@ -49,10 +48,33 @@ namespace Ovning_5___Garage_1._0
                         var bbrand = UI.AskForString("märke");
                         var bname = UI.AskForString("namn");
                         var bcolor = UI.AskForString("färg");
-                        var bregnr = UI.AskForString("registreringsnummer");                      
-                        var nrOfSeats = Convert.ToUInt32(UI.AskForString("antal sittplatser"));        
+                        var bregnr = UI.AskForString("registreringsnummer"); 
+                        var nrOfSeats = Convert.ToUInt32(UI.AskForString1("antal sittplatser"));
+                        if (nrOfSeats < 0)
+                            throw new ArgumentException("fel");
+                        else
                         garageHandler.Park(new Bus(bregnr, bbrand, bname, bcolor, nrOfSeats));
                         break;
+
+                    case "car":
+                        var regnrc = UI.AskForString("registreringsnummer");
+                        var brandc = UI.AskForString("märke");
+                        var namec = UI.AskForString("namn");
+                        var colorc = UI.AskForString("färg");
+                        var fuel = UI.AskForString("bränsle");
+                        garageHandler.Park(new Car(regnrc, brandc, namec, colorc, fuel));
+                        break;
+
+                    case "airplane":
+ 
+                        var regnra = UI.AskForString("registreringsnummer");
+                        var branda = UI.AskForString("märke");
+                        var namea = UI.AskForString("namn");
+                        var colora = UI.AskForString("färg");
+                        var wings = UI.AskForString1("wings");
+                        garageHandler.Park(new Airplane(regnra, branda, namea, colora, Convert.ToUInt32(wings)));
+                        break;
+                  
                 }
 
                 
