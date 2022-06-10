@@ -14,7 +14,7 @@ namespace Ovning_5___Garage_1._0
         {
             public override string UEMessage()
             {
-                return "You tried to use a numeric inputin a text only field. This fired an error";
+                return " Var god skriv text, ett numeriskt input ej tillåtet här .";
             }
         }
         class TextInputError : UserError

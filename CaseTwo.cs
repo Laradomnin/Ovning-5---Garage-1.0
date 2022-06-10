@@ -8,46 +8,57 @@ namespace Ovning_5___Garage_1._0
 {
     public class CaseTwo
     {
-        
-        
-        public static bool Help(GarageHandler garageHandler)
+
+
+        public static void Help(GarageHandler garageHandler)
+        {
+            string userInputType;
+            while (true)
+
             {
-      string userInputType;
-      bool done = false;
+                userInputType = UI.AskForString("fordonstyp (Bus, Boat, Airplane eller Car)");
 
-            userInputType = UI.AskForString("fordonstyp (Bus, Boat, Airplane eller Car)");
+                if ((!userInputType.ToLower().Equals("bus")
+                || !userInputType.ToLower().Equals("boat")
+                || !userInputType.ToLower().Equals("car")
+                || !userInputType.ToLower().Equals("airplane")))
 
-            if ((!userInputType.ToLower().Equals("bus")
-            || !userInputType.ToLower().Equals("boat")
-            || !userInputType.ToLower().Equals("car")
-            || !userInputType.ToLower().Equals("airplane")))
-            
 
-            { Console.WriteLine("Ange rätt parrameter"); }
-              
-           
-                var regnr = UI.AskForString("registreringsnummer");
-                var brand = UI.AskForString("märke");
-                var name = UI.AskForString("namn");
-                var color = UI.AskForString("färg");
-           
+                 Console.WriteLine("Ange rätt parrameter"); 
 
-            switch (userInputType.ToLower())
-            {
-                case "boat":
-                    var length = Convert.ToDouble(UI.AskForString("längd"));
-                    garageHandler.Park(new Boat(regnr, brand, name, color, length));
-                    break;
-                case "bus":
-                    var nrOfSeats = Convert.ToUInt32(UI.AskForString("antal sittplatser"));
+                else
+                Console.WriteLine("du parkerar  " + userInputType);
 
-                    garageHandler.Park(new Bus(regnr, brand, name, color, nrOfSeats));
-                    break;
+                //var regnr = UI.AskForString("registreringsnummer");
+                //var brand = UI.AskForString("märke");
+                //var name = UI.AskForString("namn");
+                //var color = UI.AskForString("färg");
+
+
+                switch (userInputType.ToLower())
+                {
+                    case "boat":
+                        var regnr = UI.AskForString("registreringsnummer");
+                        var brand = UI.AskForString("märke");
+                        var name = UI.AskForString("namn");
+                        var color = UI.AskForString("färg");
+                        var length = Convert.ToDouble(UI.AskForString("längd"));
+                        garageHandler.Park(new Boat(regnr, brand, name, color, length));
+                        break;
+                    case "bus":
+                        var bbrand = UI.AskForString("märke");
+                        var bname = UI.AskForString("namn");
+                        var bcolor = UI.AskForString("färg");
+                        var bregnr = UI.AskForString("registreringsnummer");                      
+                        var nrOfSeats = Convert.ToUInt32(UI.AskForString("antal sittplatser"));        
+                        garageHandler.Park(new Bus(bregnr, bbrand, bname, bcolor, nrOfSeats));
+                        break;
+                }
+
+                
             }
-            
-            return false;
         }
-    }
 
-       
+
+    }
 }
